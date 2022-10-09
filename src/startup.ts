@@ -1,7 +1,8 @@
-import { Test } from "./test";
+import { Application } from './application';
+import { container, DIIdentifiers } from './setup-DIContainers';
 
 console.info('startup starting');
 
-let t = new Test();
+const app : Application = container.get<Application>(DIIdentifiers.application);
 
-t.run();
+app.init();
