@@ -1,8 +1,9 @@
 import { Application } from './application';
-import { container, DIIdentifiers } from './setup-DIContainers';
+import { RunningMode } from './RunningEngines/types';
+import { container, GlobalDIIdentifiers } from './setup-DIContainers';
 
 console.info('startup starting');
 
-const app : Application = container.get<Application>(DIIdentifiers.application);
+const app : Application = container.get<Application>(GlobalDIIdentifiers.application);
 
-app.init();
+app.init(RunningMode.commandLine);

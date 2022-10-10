@@ -4,12 +4,12 @@ import { RunningEnginesDIContainer } from './RunningEngines/running-engines-dico
 import { interfaces, ContainerModule, Container } from 'inversify';
 import { Application } from './application';
 
-export enum DIIdentifiers {
+export enum GlobalDIIdentifiers {
     application = 'application'
 }
 
 
-const DIContainer = new ContainerModule(
+export const GlobalDIContainer = new ContainerModule(
     (
         bind: interfaces.Bind,
         unbind: interfaces.Unbind,
@@ -19,12 +19,12 @@ const DIContainer = new ContainerModule(
         onActivation: interfaces.Container['onActivation'],
         onDeactivation: interfaces.Container['onDeactivation']
     ): void => {
-        bind<Application>(DIIdentifiers.application).to(Application).inSingletonScope();
+        bind<Application>(GlobalDIIdentifiers.application).to(Application).inSingletonScope();
     }
 );
 
 export const container = new Container({"defaultScope": "Singleton"});
 
-container.load(DIContainer);
+container.load(GlobalDIContainer);
 container.load(RunningEnginesDIContainer);
 
