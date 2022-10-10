@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
             "type": "node",
             "request": "launch",
@@ -19,6 +20,16 @@
             "args": [
                 "${workspaceFolder}/src/entrypoint.js"
             ]
-        }
+        },
+        {
+            "name": "Jest tests",
+            "type": "node",
+            "request": "launch",
+            "env": { "CI": "true" },
+            "runtimeExecutable": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+            "args": ["-i"],
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart"
+          }
     ]
 }
