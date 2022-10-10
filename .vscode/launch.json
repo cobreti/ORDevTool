@@ -12,12 +12,12 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "runtimeArgs": [
-                "-r",
-                "ts-node/register"
-            ],
+            // "runtimeArgs": [
+            //     "-r",
+            //     "ts-node/register"
+            // ],
             "args": [
-                "${workspaceFolder}/src/startup.ts"
+                "${workspaceFolder}/src/entrypoint.js"
             ]
         }
     ]
